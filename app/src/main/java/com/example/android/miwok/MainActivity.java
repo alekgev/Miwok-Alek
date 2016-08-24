@@ -17,6 +17,8 @@ package com.example.android.miwok;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.design.widget.TabLayout;
+import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.TextView;
@@ -32,49 +34,59 @@ public class MainActivity extends AppCompatActivity {
         // Set the content of the activity to use the activity_main.xml layout file
         setContentView(R.layout.activity_main);
 
+        ViewPager viewPager = (ViewPager) findViewById(R.id.view_pager);
+
+        SimpleFragmentPagerAdapter adapter = new SimpleFragmentPagerAdapter(getSupportFragmentManager());
+
+        viewPager.setAdapter(adapter);
+
+        TabLayout tabLayout = (TabLayout) findViewById(R.id.tab_layout);
+
+        tabLayout.setupWithViewPager(viewPager);
+
 //        NumbersClickListener clickListener = new NumbersClickListener();
 
-        TextView colorsTW = (TextView) findViewById(R.id.colors);
-        colorsTW.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Toast.makeText(v.getContext(), "You just entered Colors category!", Toast.LENGTH_SHORT).show();
-
-                Intent colorsIntent = new Intent(MainActivity.this, ColorsActivity.class);
-                startActivity(colorsIntent);
-            }
-        });
-
-        TextView familyTW = (TextView) findViewById(R.id.family);
-        familyTW.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Toast.makeText(v.getContext(), "You just entered Family category!", Toast.LENGTH_SHORT).show();
-
-                Intent familyIntent = new Intent(MainActivity.this, FamilyActivity.class);
-                startActivity(familyIntent);
-            }
-        });
-
-        TextView numbersTW = (TextView) findViewById(R.id.numbers);
-        numbersTW.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Toast.makeText(view.getContext(), "You just entered Numbers category!", Toast.LENGTH_SHORT).show();
-                Intent numbersIntent = new Intent(MainActivity.this, NumbersActivity.class);
-                startActivity(numbersIntent);
-            }
-        });
-
-        TextView phrasesTW = (TextView) findViewById(R.id.phrases);
-        phrasesTW.setOnClickListener(new View.OnClickListener(){
-            @Override
-            public void onClick (View view) {
-                Toast.makeText(view.getContext(),"You just entered Phrases category!",Toast.LENGTH_SHORT).show();
-                Intent phrasesIntent = new Intent(MainActivity.this, PhrasesActivity.class);
-                startActivity(phrasesIntent);
-            }
-        });
+//        TextView colorsTW = (TextView) findViewById(R.id.colors);
+//        colorsTW.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                Toast.makeText(v.getContext(), "You just entered Colors category!", Toast.LENGTH_SHORT).show();
+//
+//                Intent colorsIntent = new Intent(MainActivity.this, ColorsActivity.class);
+//                startActivity(colorsIntent);
+//            }
+//        });
+//
+//        TextView familyTW = (TextView) findViewById(R.id.family);
+//        familyTW.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                Toast.makeText(v.getContext(), "You just entered Family category!", Toast.LENGTH_SHORT).show();
+//
+//                Intent familyIntent = new Intent(MainActivity.this, FamilyActivity.class);
+//                startActivity(familyIntent);
+//            }
+//        });
+//
+//        TextView numbersTW = (TextView) findViewById(R.id.numbers);
+//        numbersTW.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                Toast.makeText(view.getContext(), "You just entered Numbers category!", Toast.LENGTH_SHORT).show();
+//                Intent numbersIntent = new Intent(MainActivity.this, NumbersActivity.class);
+//                startActivity(numbersIntent);
+//            }
+//        });
+//
+//        TextView phrasesTW = (TextView) findViewById(R.id.phrases);
+//        phrasesTW.setOnClickListener(new View.OnClickListener(){
+//            @Override
+//            public void onClick (View view) {
+//                Toast.makeText(view.getContext(),"You just entered Phrases category!",Toast.LENGTH_SHORT).show();
+//                Intent phrasesIntent = new Intent(MainActivity.this, PhrasesActivity.class);
+//                startActivity(phrasesIntent);
+//            }
+//        });
 
 //    public void openPhrasesList (View view) {
 //        Intent phrases = new Intent(this, PhrasesActivity.class);
